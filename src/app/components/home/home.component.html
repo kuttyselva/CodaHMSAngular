@@ -1,1 +1,177 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row my-2">
+    <div class="col-lg-8 order-lg-2">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a
+            href=""
+            data-target="#profile"
+            data-toggle="tab"
+            class="nav-link active"
+            >Profile</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#edit" data-toggle="tab" class="nav-link"
+            >Edit</a
+          >
+        </li>
+      </ul>
+      <div class="tab-content py-4">
+        <div class="tab-pane active" id="profile">
+          <h5 class="mb-3">User Profile</h5>
+          <div class="row">
+            <div class="col-md-6">
+              <h6>Name</h6>
+              <p>
+                {{ userData.name }}
+              </p>
+              <h6>Age</h6>
+              <p>
+                {{ userData.age }}
+              </p>
+              <h6>Age</h6>
+              <p>
+                {{ userData.age }}
+              </p>
+              <h6>Location</h6>
+              <p>
+                {{ userData.location }}
+              </p>
+              <h6>Phone</h6>
+              <p>
+                {{ userData.phone }}
+              </p>
+              <h6>Disease</h6>
+              <p>
+                {{ userData.disease }}
+              </p>
+            </div>
+            <!-- <div class="col-md-6">
+              <h6>Recent badges</h6>
+              <a href="#" class="badge badge-dark badge-pill">html5</a>
+              <a href="#" class="badge badge-dark badge-pill">react</a>
+              <a href="#" class="badge badge-dark badge-pill">codeply</a>
+              <a href="#" class="badge badge-dark badge-pill">angularjs</a>
+              <a href="#" class="badge badge-dark badge-pill">css3</a>
+              <a href="#" class="badge badge-dark badge-pill">jquery</a>
+              <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
+              <a href="#" class="badge badge-dark badge-pill"
+                >responsive-design</a
+              >
+              <hr />
+              <span class="badge badge-primary"
+                ><i class="fa fa-user"></i> 900 Followers</span
+              >
+              <span class="badge badge-success"
+                ><i class="fa fa-cog"></i> 43 Forks</span
+              >
+              <span class="badge badge-danger"
+                ><i class="fa fa-eye"></i> 245 Views</span
+              >
+            </div> -->
+            <div class="col-md-12">
+              <h5 class="mt-2">
+                <span class="fa fa-clock-o ion-clock float-right"></span> Recent
+                Activity
+              </h5>
+              <div class="card" style="width: 18rem;">
+                <img
+                  src="//robohash.org/selva"
+                  class="img-thumbnail"
+                  class="card-img-top"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/row-->
+        </div>
+        <div class="tab-pane" id="edit">
+          <form role="form">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"
+                >Username</label
+              >
+              <div class="col-lg-9">
+                <input disabled class="form-control" type="text" value="Jane" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"
+                >Phone</label
+              >
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"
+                >Location</label
+              >
+              <div class="col-lg-9">
+                <input class="form-control" type="url" value="" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"
+                >Age</label
+              >
+              <div class="col-lg-9">
+                <input class="form-control" type="number" value="janeuser" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"
+                >Disease</label
+              >
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="Jane" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"
+                >Phone</label
+              >
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="Jane" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <input
+                  type="button"
+                  class="btn btn-primary btn-block"
+                  value="Save Changes"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 order-lg-1 text-center">
+      <img
+        src="//robohash.org/kutty"
+        class="mx-auto img-fluid img-circle d-block"
+        alt="avatar"
+      />
+      <h6 class="mt-2">Upload a different photo</h6>
+      <label class="custom-file">
+        <input type="file" id="file" class="custom-file-input" />
+        <span class="custom-file-control">Choose file</span>
+      </label>
+    </div>
+  </div>
+</div>
