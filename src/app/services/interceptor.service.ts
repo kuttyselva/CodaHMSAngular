@@ -13,7 +13,10 @@ export class InterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     console.log("Intercepted ", req.url);
-    if (req.url.search("/authenticate")===-1) {
+    if (req.url.search("/authenticate")!==-1 || req.url.search("/create")!==-1) {
+      return next.handle(req);
+    }
+    else{
       const newReq = req.clone({
         headers: req.headers.append(
           "Authorization",
@@ -23,7 +26,6 @@ export class InterceptorService implements HttpInterceptor {
       console.log(newReq);
       return next.handle(newReq);
     }
-    return next.handle(req);
   }
   getToken(){
     return localStorage.getItem('token');

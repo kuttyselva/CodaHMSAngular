@@ -5,7 +5,6 @@ import { Router } from "@angular/router";
 import { Store, select } from "@ngrx/store";
 import { User } from "src/app/models/user.models";
 import { Observable } from "rxjs";
-import * as jwt_decode from "jwt-decode";
 import { UserAdd } from "src/app/actions/user.action";
 @Component({
   selector: "app-login",

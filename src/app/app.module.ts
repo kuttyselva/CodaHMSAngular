@@ -14,6 +14,8 @@ import { StoreModule } from "@ngrx/store";
 import { PatientReducer } from "./reducers/patient.reducers";
 import { UserReducer } from "./reducers/user.reducer";
 import { environment } from 'src/environments/environment';
+import { RegPatientComponent } from './components/reg-patient/reg-patient.component';
+import { PatientService } from './services/patient/patient.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { environment } from 'src/environments/environment';
     LoginComponent,
     DashboardComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegPatientComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { environment } from 'src/environments/environment';
   ],
   providers: [
     UserService,
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    PatientService
   ],
   bootstrap: [AppComponent]
 })
