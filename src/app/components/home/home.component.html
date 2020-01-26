@@ -74,7 +74,7 @@
               </span>
               <span class="badge badge-danger p-2 m-1"
                 ><i class="fa fa-eye"></i>
-                {{ docPatients.length }} Patients</span
+                {{ docPatientslength }} Patients</span
               >
             </div>
             <div class="col-md-12">
@@ -115,7 +115,7 @@
                 >Username</label
               >
               <div class="col-lg-9">
-                <input disabled class="form-control" type="text" value="Jane" />
+                <input disabled class="form-control" #name type="text" value={{userData.name}} />
               </div>
             </div>
 
@@ -124,15 +124,15 @@
                 >Phone</label
               >
               <div class="col-lg-9">
-                <input class="form-control" type="text" value="" />
+                <input class="form-control" #phone type="text" value={{userData.phone}} />
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"
+              <label class="col-lg-3 col-form-label # form-control-label"
                 >Location</label
               >
               <div class="col-lg-9">
-                <input class="form-control" type="url" value="" />
+                <input class="form-control" type="url" #location value={{userData.location}} />
               </div>
             </div>
 
@@ -141,33 +141,29 @@
                 >Age</label
               >
               <div class="col-lg-9">
-                <input class="form-control" type="number" value="janeuser" />
+                <input class="form-control" type="number" #age value={{userData.age}} />
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label"
-                >Disease</label
+                >{{userData.disease ? 'Disease' : 'Speciality'}}</label
               >
-              <div class="col-lg-9">
-                <input class="form-control" type="text" value="Jane" />
+              <div class="col-lg-9" [hidden]="!userData.disease">
+                <input class="form-control" type="text" #spec value={{userData.disease}} />
+              </div>
+              <div class="col-lg-9" [hidden]="!userData.speciality">
+                <input class="form-control" type="text" #spec value={{userData.speciality}} />
               </div>
             </div>
 
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"
-                >Phone</label
-              >
-              <div class="col-lg-9">
-                <input class="form-control" type="text" value="Jane" />
-              </div>
-            </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label"></label>
               <div class="col-lg-9">
                 <input
                   type="button"
                   class="btn btn-primary btn-block"
-                  value="Save Changes"
+                  value="Update Changes"
+                  (click)="updateData(name.value,age.value,phone.value,location.value,spec.value)"
                 />
               </div>
             </div>

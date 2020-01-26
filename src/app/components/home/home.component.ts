@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   patients: Observable<Patient[]>;
   docPatients: Patient[];
   userData: User;
+  docPatientslength;
   constructor(
     private router: Router,
     private store: Store<{ user: User }>,
@@ -34,11 +35,15 @@ export class HomeComponent implements OnInit {
       this.userService.getDoctorPatients(this.userData.id).subscribe(data => {
         this.store.dispatch(new UserAdd(data.object[0]));
         this.docPatients=this.userData.patientList;
+        this.docPatientslength=this.docPatients.length;
       });
     }
     if (!localStorage.getItem("token")) {
       this.router.navigate(["/login"]);
       console.log(this.user);
     }
+  }
+  updateData(name,age,phone,location,spec){
+    console.log(name,age,phone,location,spec);
   }
 }

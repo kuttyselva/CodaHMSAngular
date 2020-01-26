@@ -8,6 +8,13 @@
               Patient Registration
             </h5>
             <form class="form-signin">
+              <div
+                class="alert alert-danger "
+                [ngClass]="{ 'd-none': !invalid }"
+                role="alert"
+              >
+                Fill all Fields.
+              </div>
               <div class="form-label-group">
                 <input
                   type="text"
@@ -17,11 +24,10 @@
                   [ngClass]="{ 'is-invalid': invalid }"
                   #username
                   required
-                  
                 />
                 <label for="name">User name</label>
               </div>
-              
+
               <div class="form-label-group">
                 <input
                   type="password"
@@ -44,7 +50,6 @@
                   [ngClass]="{ 'is-invalid': invalid }"
                   #age
                   required
-                  
                 />
                 <label for="age">Age</label>
               </div>
@@ -58,7 +63,6 @@
                   [ngClass]="{ 'is-invalid': invalid }"
                   #phone
                   required
-                  
                 />
                 <label for="phone">Phone</label>
               </div>
@@ -72,7 +76,6 @@
                   [ngClass]="{ 'is-invalid': invalid }"
                   #location
                   required
-                  
                 />
                 <label for="location">Location</label>
               </div>
@@ -94,7 +97,16 @@
               <button
                 class="btn btn-lg btn-primary btn-block text-uppercase"
                 type="button"
-                (click)="createPatient(username.value, password.value,age.value,phone.value,location.value,disease.value)"
+                (click)="
+                  createPatient(
+                    username.value,
+                    password.value,
+                    age.value,
+                    phone.value,
+                    location.value,
+                    disease.value
+                  )
+                "
               >
                 Sign in
               </button>

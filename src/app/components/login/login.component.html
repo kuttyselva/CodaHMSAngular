@@ -4,7 +4,9 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center font-weight-normal">Hospital System</h5>
+            <h5 class="card-title text-center font-weight-normal">
+              Hospital System
+            </h5>
             <form class="form-signin">
               <div class="form-label-group">
                 <input
@@ -42,18 +44,20 @@
                 Sign in
               </button>
               <hr class="my-4" />
-              <button
+
+              <a
                 class="btn btn-lg btn-google btn-block text-uppercase"
-                type="submit"
+                [routerLink]="['/create/doctor']"
               >
-                <i class="fas fa-stethoscope fa-lg"></i> Sign up as Doctor
-              </button>
-              <button
+                <i class="fas fa-stethoscope fa-lg"></i> Sign up as Doctor</a
+              >
+              <a
                 class="btn btn-lg btn-facebook btn-block text-uppercase"
-                type="submit"
+                [routerLink]="['/create/patient']"
+                role="button"
               >
                 <i class="fas fa-user"></i> Sign up as Patient
-              </button>
+              </a>
             </form>
           </div>
         </div>

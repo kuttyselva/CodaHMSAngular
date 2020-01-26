@@ -14,7 +14,7 @@ export class RegPatientComponent implements OnInit {
   patient: Patient;
   ngOnInit() {}
   createPatient(name, password, age, phone, location, disease) {
-    if (name.length > 3 && password.length > 3) {
+    if (name.length > 3 && password.length > 3 && age && phone.length >4 && disease.length > 1 && location.length > 1) {
       this.patientService
         .addPatient({
           name,
@@ -34,6 +34,9 @@ export class RegPatientComponent implements OnInit {
             console.log(err);
           }
         );
+    }
+    else{
+      this.invalid=true;
     }
   }
 }
