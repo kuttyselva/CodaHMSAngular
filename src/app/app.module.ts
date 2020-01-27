@@ -14,9 +14,9 @@ import { StoreModule } from "@ngrx/store";
 import { PatientReducer } from "./reducers/patient.reducers";
 import { UserReducer } from "./reducers/user.reducer";
 import { environment } from 'src/environments/environment';
-import { RegPatientComponent } from './components/reg-patient/reg-patient.component';
+import { RegisterComponent } from './components/register/register.component';
 import { PatientService } from './services/patient/patient.service';
-
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,10 +24,12 @@ import { PatientService } from './services/patient/patient.service';
     DashboardComponent,
     HomeComponent,
     HeaderComponent,
-    RegPatientComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({ patients: PatientReducer ,user:UserReducer}),

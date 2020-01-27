@@ -8,5 +8,6 @@ export class User{
     role:number;
     disease:string;
     patientList:Array<any>;
+    doctorRecordList:Array<any>;
     speciality:string;
 }

@@ -37,8 +37,14 @@ export class UserService {
     this.data = this.http.get<any>("http://localhost:8080/doctors/patients/",{params});
     return this.data;
   }
+
+  getPatientDoctors(id): Observable<any> {    
+    this.data = this.http.get<any>("http://localhost:8080/patients/patient/"+id+"/getDoctors");
+    return this.data;
+  }
   getUser(data) {
     var decoded = jwt_decode(data.token).user;
     return decoded;
   }
+  
 }

@@ -2,10 +2,10 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./components/login/login.component";
 import { HomeComponent } from "./components/home/home.component";
-import { RegPatientComponent } from "./components/reg-patient/reg-patient.component";
+import { RegisterComponent } from "./components/register/register.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "home", component: HomeComponent },
   {
@@ -13,7 +13,11 @@ const routes: Routes = [
     children: [
       {
         path: "patient",
-        component: RegPatientComponent
+        component: RegisterComponent
+      },
+      {
+        path: "doctor",
+        component: RegisterComponent
       }
     ]
   }

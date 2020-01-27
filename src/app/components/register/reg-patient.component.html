@@ -1,0 +1,165 @@
+<div class="bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center font-weight-normal">
+              {{ role ? "Patient" : "Doctor" }} Registration
+            </h5>
+            <form
+              class="form-signin"
+              [formGroup]="regForm"
+              (ngSubmit)="regUser(regForm)"
+            >
+              <div
+                class="alert alert-danger "
+                [ngClass]="{ 'd-none': !invalid }"
+                role="alert"
+              >
+                Fill all Fields.
+              </div>
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="Name"
+                  formControlName="name"
+                  [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                  required
+                />
+                <label for="name">User name</label>
+                <div
+                  *ngIf="submitted && f.name.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.name.errors">
+                    Name must be atleast 4 characters
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-label-group">
+                <input
+                  type="password"
+                  id="inputPassword"
+                  class="form-control"
+                  placeholder="Password"
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                  formControlName="password"
+                  required
+                />
+                <label for="inputPassword">Password</label>
+                <div
+                  *ngIf="submitted && f.password.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.password.hasError('minlength')">
+                    Password must be atleast 4 characters
+                  </div>
+                  <div *ngIf="f.password.hasError('passerr')">
+                    Password should not contain Username
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-label-group">
+                <input
+                  type="number"
+                  id="age"
+                  class="form-control"
+                  placeholder="Age"
+                  [ngClass]="{ 'is-invalid': submitted && f.age.errors }"
+                  formControlName="age"
+                  required
+                />
+                <label for="age">Age</label>
+                <div
+                  *ngIf="submitted && f.age.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.age.errors">
+                    Enter Valid Age
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="phone"
+                  class="form-control"
+                  placeholder="Phone"
+                  [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+                  formControlName="phone"
+                  required
+                />
+                <label for="phone">Phone</label>
+                <div
+                  *ngIf="submitted && f.phone.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.phone.errors">
+                    Phone must be 10 characters
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="location"
+                  class="form-control"
+                  placeholder="Location"
+                  [ngClass]="{ 'is-invalid': submitted && f.location.errors }"
+                  formControlName="location"
+                  required
+                />
+                <label for="location">Location</label>
+                <div
+                  *ngIf="submitted && f.location.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.location.errors">
+                    Enter Valid Location
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="disease"
+                  class="form-control"
+                  placeholder="{{ role ? 'Disease' : 'Speciality' }}"
+                  [ngClass]="{ 'is-invalid': submitted && f.spec.errors }"
+                  formControlName="spec"
+                  required
+                />
+                <label for="disease" *ngIf="role">Disease</label>
+                <label for="disease" *ngIf="!role">Speciality</label>
+                <div
+                  *ngIf="submitted && f.spec.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.spec.errors">
+                    This Field is Mandatory
+                  </div>
+                </div>
+              </div>
+
+              <br />
+              <button
+                class="btn btn-lg btn-primary btn-block text-uppercase"
+                type="submit"
+              >
+                Sign in
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
