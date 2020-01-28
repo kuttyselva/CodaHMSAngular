@@ -12,19 +12,16 @@ import { UserService } from "src/app/services/user/user.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  patients: Observable<Patient[]>;
 
   constructor(
     private router: Router,
     private store: Store<{ patients: Patient[] }>,
     private userService: UserService
-  ) {
-    this.patients = store.pipe(select("patients"));
-  }
+  ) {}
   ngOnInit() {}
   logout() {
     localStorage.removeItem("token");
-    this.router.navigate(["/"]);
+    this.router.navigate(["/login"]);
   }
   AddPatient() {
     const patient = new Patient();
@@ -38,10 +35,5 @@ export class HeaderComponent implements OnInit {
     console.log(patient);
     this.store.dispatch(new PatientAdd(patient));
   }
-  getPatients() {
-    this.userService.getPatients().subscribe(data => {
-      const patientsList: Array<Patient> = data.object;
-      this.store.dispatch(new PatientAdd(patientsList));
-    });
-  }
+  
 }

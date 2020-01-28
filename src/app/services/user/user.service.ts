@@ -23,9 +23,6 @@ export class UserService {
   saveToken(token) {
     localStorage.setItem("token", token.token);
   }
-  getPatients(): Observable<any> {
-    return this.http.get<any>("http://localhost:8080/patients/all");
-  }
 
   setUserData(tokentData) {
     this.userData = jwt_decode(tokentData);

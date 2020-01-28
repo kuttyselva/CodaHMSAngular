@@ -13,11 +13,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#"
+      <a class="nav-item nav-link active" [routerLink]="['/home']"
         >Home <span class="sr-only">(current)</span></a
       >
-      <a class="nav-item nav-link" (click)="getPatients()">Patient</a>
-      <a class="nav-item nav-link" href="#">Doctor</a>
+      <a class="nav-item nav-link" [routerLink]="['/patients']">Patient</a>
+      <a class="nav-item nav-link" [routerLink]="['/doctors']">Doctor</a>
     </div>
     <div class="navbar-nav ml-auto">
       <div class="nav-item text-center p-2">

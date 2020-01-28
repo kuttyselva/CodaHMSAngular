@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div class="bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h5 class="card-title text-center font-weight-normal">
+                Patient Entry
+              </h5>
+              <form class="form-signin" [formGroup]="patientEntryForm"
+              (ngSubmit)="patientEntry(patientEntryForm)">
+                <div class="form-label-group">
+                  <input
+                    type="text"
+                    id="patientName"
+                    class="form-control"
+                    placeholder="Patient Name"
+                    [ngClass]="{ 'is-invalid': invalid }"
+                    formControlName="name"
+                  />
+                  <label for="patientName">Patient name</label>
+                </div>
+  
+                <div class="form-label-group">
+                  <input
+                    type="text"
+                    id="disease"
+                    class="form-control"
+                    placeholder="Disease"
+                    [ngClass]="{ 'is-invalid': invalid }"
+                    formControlName="disease"
+                  />
+                  <label for="disease">Disease</label>
+                </div>
+  
+                <br />
+                <button
+                  class="btn btn-lg btn-primary btn-block text-uppercase"
+                  type="submit"
+                >
+                  Create Entry for docname
+                </button>
+                <hr class="my-4" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

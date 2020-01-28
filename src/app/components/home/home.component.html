@@ -86,26 +86,30 @@
               </h5>
               <div class="d-flex">
                 <div
-                  class="card m-2"
-                  style="width: 18rem;"
-                  *ngFor="let patient of docPatients"
+                  class="row justify-content-md-center justify-content-around"
                 >
-                  <img
-                    src="//robohash.org/{{ patient.name }}"
-                    class="img-thumbnail"
-                    class="card-img-top"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">{{ patient.name }}</h5>
-                    <p class="card-text">Phone : {{ patient.phone }}</p>
-                    <p class="card-text">
-                      {{ userData.disease ? "Disease" : "Speciality" }} :
-                      {{
-                        patient.disease ? patient.disease : patient.speciality
-                      }}
-                    </p>
-                    <p class="card-text">Location : {{ patient.location }}</p>
-                    <a href="#" class="btn btn-primary btn-block">view</a>
+                  <div
+                    class="card m-2"
+                    style="width: 14rem;"
+                    *ngFor="let patient of docPatients"
+                  >
+                    <img
+                      src="//robohash.org/{{ patient.name }}"
+                      class="img-thumbnail"
+                      class="card-img-top"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">{{ patient.name }}</h5>
+                      <p class="card-text">Phone : {{ patient.phone }}</p>
+                      <p class="card-text">
+                        {{ userData.disease ? "Disease" : "Speciality" }} :
+                        {{
+                          patient.disease ? patient.disease : patient.speciality
+                        }}
+                      </p>
+                      <p class="card-text">Location : {{ patient.location }}</p>
+                      <a href="#" class="btn btn-primary btn-block">view</a>
+                    </div>
                   </div>
                 </div>
               </div>

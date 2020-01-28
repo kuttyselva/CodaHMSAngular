@@ -12,13 +12,6 @@
               [formGroup]="regForm"
               (ngSubmit)="regUser(regForm)"
             >
-              <div
-                class="alert alert-danger "
-                [ngClass]="{ 'd-none': !invalid }"
-                role="alert"
-              >
-                Fill all Fields.
-              </div>
               <div class="form-label-group">
                 <input
                   type="text"

@@ -35,7 +35,6 @@ export class RegisterComponent implements OnInit {
       spec: ["", Validators.required],
       phone: ["", [Validators.required, Validators.min(10)]]
     },{validator:passwordMatchValidator});
-   
   }
 
   get f() { return this.regForm.controls; }

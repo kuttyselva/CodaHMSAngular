@@ -16,4 +16,8 @@ export class DoctorService {
   updateDoctor(doctor:Doctor):Observable<any>{
     return this.http.post<Doctor>("http://localhost:8080/doctors/doctor/update",doctor);
   }
+
+  getDoctors(): Observable<any> {
+    return this.http.get<any>("http://localhost:8080/doctors/all");
+  }
 }
