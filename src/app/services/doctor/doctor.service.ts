@@ -10,14 +10,18 @@ export class DoctorService {
 
   constructor(private http: HttpClient) { }
   addDoctor(doctor: Doctor): Observable<Doctor> {
-    return this.http.post<Doctor>("http://localhost:8080/doctors/create", doctor);
+    return this.http.post<Doctor>('http://localhost:8080/doctors/create', doctor);
   }
 
-  updateDoctor(doctor:Doctor):Observable<any>{
-    return this.http.post<Doctor>("http://localhost:8080/doctors/doctor/update",doctor);
+  updateDoctor(doctor: Doctor): Observable<any> {
+    return this.http.post<Doctor>('http://localhost:8080/doctors/doctor/update', doctor);
   }
 
   getDoctors(): Observable<any> {
-    return this.http.get<any>("http://localhost:8080/doctors/all");
+    return this.http.get<any>('http://localhost:8080/doctors/all');
+  }
+
+  addEntry(docID: number, patID: number): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/doctors/patientEntry/' + docID + '/' + patID);
   }
 }

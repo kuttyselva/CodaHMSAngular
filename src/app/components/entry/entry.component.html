@@ -1,52 +1,83 @@
 <app-header></app-header>
 <div class="bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div class="card card-signin my-5">
-            <div class="card-body">
-              <h5 class="card-title text-center font-weight-normal">
-                Patient Entry
-              </h5>
-              <form class="form-signin" [formGroup]="patientEntryForm"
-              (ngSubmit)="patientEntry(patientEntryForm)">
-                <div class="form-label-group">
-                  <input
-                    type="text"
-                    id="patientName"
-                    class="form-control"
-                    placeholder="Patient Name"
-                    [ngClass]="{ 'is-invalid': invalid }"
-                    formControlName="name"
-                  />
-                  <label for="patientName">Patient name</label>
-                </div>
-  
-                <div class="form-label-group">
-                  <input
-                    type="text"
-                    id="disease"
-                    class="form-control"
-                    placeholder="Disease"
-                    [ngClass]="{ 'is-invalid': invalid }"
-                    formControlName="disease"
-                  />
-                  <label for="disease">Disease</label>
-                </div>
-  
-                <br />
-                <button
-                  class="btn btn-lg btn-primary btn-block text-uppercase"
-                  type="submit"
-                >
-                  Create Entry for docname
-                </button>
-                <hr class="my-4" />
-              </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center font-weight-normal">
+              Patient Entry
+            </h5>
+            <form
+              class="form-signin"
+              [formGroup]="patientEntryForm"
+              (ngSubmit)="patientEntry(patientEntryForm)"
+            >
+            <div class="form-label-group">
+              <div class="d-flex form-label-group">
+                <input
+                type="text"
+                id="patientID"
+                class="form-control m-1"
+                placeholder="Patient ID"
+                [ngClass]="{ 'is-invalid': invalid }"
+                formControlName="id"
+              />
+              <label for="patientID">Patient ID</label>
+              <button type="button" class="btn btn-lg btn-primary m-1" (click)="getPatient(patientEntryForm)">get</button>
+              </div>
             </div>
+            <hr class="my-4" />
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="patientName"
+                  class="form-control"
+                  placeholder="Patient Name"
+                  [ngClass]="{ 'is-invalid': invalid }"
+                  formControlName="name"
+                  disabled
+                />
+                <label for="patientName">Patient name</label>
+              </div>
+
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="phone"
+                  class="form-control"
+                  placeholder="Phone"
+                  [ngClass]="{ 'is-invalid': invalid }"
+                  formControlName="phone"
+                  disabled
+                />
+                <label for="phone">Phone</label>
+              </div>
+
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="disease"
+                  class="form-control"
+                  placeholder="Disease"
+                  [ngClass]="{ 'is-invalid': invalid }"
+                  formControlName="disease"
+                  disabled
+                />
+                <label for="disease">Disease</label>
+              </div>
+
+              <br />
+              <button
+                class="btn btn-lg btn-primary btn-block text-uppercase"
+                type="submit"
+              >
+                Create Entry for docname
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

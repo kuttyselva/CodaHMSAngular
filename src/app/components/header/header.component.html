@@ -18,14 +18,11 @@
       >
       <a class="nav-item nav-link" [routerLink]="['/patients']">Patient</a>
       <a class="nav-item nav-link" [routerLink]="['/doctors']">Doctor</a>
+      <a class="nav-item nav-link" *ngIf="user.role==2" [routerLink]="['/entry']">Entry</a>
     </div>
     <div class="navbar-nav ml-auto">
-      <div class="nav-item text-center p-2">
-        <i class="fas fa-user fa-lg text-white"></i>
-      </div>
+      <img class="nav-item rounded-circle bg-white" src="//robohash.org/doctor" width="40px" alt="" />
       <a class="nav-item nav-link pointer" (click)="logout()">Logout</a>
     </div>
-
-
   </div>
 </nav>

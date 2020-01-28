@@ -44,38 +44,42 @@
               <h6 *ngIf="userData.disease">Disease</h6>
               <h6 *ngIf="userData.speciality">Speciality</h6>
 
-              <a
+              <div
                 *ngIf="userData.speciality"
                 class="badge text-white p-2 badge-dark badge-pill"
+                style="width: inherit;"
               >
-                {{ userData.speciality }}
-              </a>
-              <a
+                <h5>{{ userData.speciality }}</h5>
+              </div>
+              <div
                 *ngIf="userData.disease"
                 class="badge text-light badge-dark badge-pill p-2"
+                style="width: inherit;"
               >
-                {{ userData.disease }}
-              </a>
+                <h4>{{ userData.disease }}</h4>
+              </div>
               <hr />
-              <span class="badge badge-primary p-2 m-1"
-                ><i class="fa fa-user"></i> 900 Checkups</span
-              >
-              <span
-                class="badge badge-success p-2 m-1"
-                *ngIf="userData.speciality"
-              >
-                <i class="fa fa-cog"></i> Doctor
-              </span>
-              <span
-                class="badge badge-success p-2 m-1"
-                *ngIf="userData.disease"
-              >
-                <i class="fa fa-cog"></i> Patient
-              </span>
-              <span class="badge badge-danger p-2 m-1"
-                ><i class="fa fa-eye"></i> {{ docPatientslength }}
-                {{ userData.disease ? "patients" : "doctors" }}</span
-              >
+              <div class="d-flex justify-content-md-center justify-content-around">
+                <span class="badge badge-primary p-2 m-1"
+                  ><i class="fa fa-user"></i> ID : {{ userData.id }}</span
+                >
+                <span
+                  class="badge badge-success p-2 m-1"
+                  *ngIf="userData.speciality"
+                >
+                  <i class="fa fa-cog"></i> Doctor
+                </span>
+                <span
+                  class="badge badge-success p-2 m-1"
+                  *ngIf="userData.disease"
+                >
+                  <i class="fa fa-cog"></i> Patient
+                </span>
+                <span class="badge badge-danger p-2 m-1"
+                  ><i class="fa fa-eye"></i> {{ docPatientslength }}
+                  {{ userData.disease ? "doctors" : "patients" }}</span
+                >
+              </div>
             </div>
             <div class="col-md-12">
               <h5 class="mt-2">
@@ -99,7 +103,14 @@
                       class="card-img-top"
                     />
                     <div class="card-body">
-                      <h5 class="card-title">{{ patient.name }}</h5>
+                      <h5 class="card-title text-center">{{ patient.name }}</h5>
+                      <div class="card-text  m-1 p-1">
+                        <a
+                          class="badge text-white p-2 badge-dark badge-pill btn-block"
+                        >
+                          ID: {{ patient.id }}
+                        </a>
+                      </div>
                       <p class="card-text">Phone : {{ patient.phone }}</p>
                       <p class="card-text">
                         {{ userData.disease ? "Disease" : "Speciality" }} :
@@ -108,7 +119,9 @@
                         }}
                       </p>
                       <p class="card-text">Location : {{ patient.location }}</p>
-                      <a href="#" class="btn btn-primary btn-block">view</a>
+                      <a href="#" class="btn btn-outline-info btn-block"
+                        >view</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -118,6 +131,7 @@
           <!--/row-->
         </div>
         <div class="tab-pane" id="edit">
+          <h4 class="display-4 text-center p-2">Update Details</h4>
           <form role="form">
             <div
               class="alert alert-success"
@@ -126,8 +140,24 @@
             >
               Data Updated
             </div>
+
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"
+              <label class="col-lg-3 font-weight-bold col-form-label form-control-label"
+                >ID</label
+              >
+              <div class="col-lg-9">
+                <input
+                  disabled
+                  class="form-control"
+                  #id
+                  type="text"
+                  value="{{ userData.id }}"
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-lg-3 font-weight-bold col-form-label form-control-label"
                 >Username</label
               >
               <div class="col-lg-9">
@@ -142,7 +172,7 @@
             </div>
 
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"
+              <label class="col-lg-3 font-weight-bold col-form-label form-control-label"
                 >Phone</label
               >
               <div class="col-lg-9">
@@ -156,7 +186,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label # form-control-label"
+              <label class="col-lg-3 font-weight-bold col-form-label # form-control-label"
                 >Location</label
               >
               <div class="col-lg-9">
@@ -171,7 +201,7 @@
             </div>
 
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"
+              <label class="col-lg-3 font-weight-bold col-form-label form-control-label"
                 >Age</label
               >
               <div class="col-lg-9">
@@ -185,7 +215,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">{{
+              <label class="col-lg-3 font-weight-bold col-form-label form-control-label">{{
                 userData.disease ? "Disease" : "Speciality"
               }}</label>
               <div class="col-lg-9" [hidden]="!userData.disease">
@@ -209,11 +239,11 @@
             </div>
 
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <label class="col-lg-3 font-weight-bold col-form-label form-control-label"></label>
               <div class="col-lg-9">
                 <input
                   type="button"
-                  class="btn btn-primary btn-block"
+                  class="btn font-weight-bold btn-primary btn-block"
                   value="Update Changes"
                   (click)="
                     updateData(

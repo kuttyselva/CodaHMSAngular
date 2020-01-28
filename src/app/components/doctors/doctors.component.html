@@ -1,7 +1,6 @@
 <app-header></app-header>
 <div class="container">
   <h1 class="display-2 text-center">Doctors</h1>
-
   <div class="d-flex">
     <div class="row justify-content-md-center justify-content-around">
       <div
@@ -10,16 +9,21 @@
         *ngFor="let doctor of doctors"
       >
         <img
-          src="//robohash.org/{{doctor.name}}"
+          src="//robohash.org/{{ doctor.name }}"
           class="img-thumbnail"
           class="card-img-top"
         />
         <div class="card-body p-1">
-          <h5 class="card-title text-center">{{doctor.name}}</h5>
-          <p class="card-text">Phone : {{doctor.phone}}</p>
-          <p class="card-text">Speciality : {{doctor.speciality}}</p>
-          <p class="card-text">Location : {{doctor.location}}</p>
-          <a href="#" class="btn btn-primary btn-block">view</a>
+          <h5 class="card-title text-center">{{ doctor.name }}</h5>
+          <div class="card-text  m-1 p-1">
+            <a class="badge text-white p-2 badge-dark badge-pill btn-block">
+              ID: {{ doctor.id }}
+            </a>
+          </div>
+          <p class="card-text">Phone : {{ doctor.phone }}</p>
+          <p class="card-text">Speciality : {{ doctor.speciality }}</p>
+          <p class="card-text">Location : {{ doctor.location }}</p>
+          <a href="#" class="btn btn-outline-info btn-block">view</a>
         </div>
       </div>
     </div>
