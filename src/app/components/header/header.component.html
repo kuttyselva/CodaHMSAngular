@@ -21,7 +21,7 @@
       <a class="nav-item nav-link" *ngIf="user.role==2" [routerLink]="['/entry']">Entry</a>
     </div>
     <div class="navbar-nav ml-auto">
-      <img class="nav-item rounded-circle bg-white" src="//robohash.org/doctor" width="40px" alt="" />
+      <img class="nav-item rounded-circle bg-white" src="//robohash.org/{{user.name}}" width="40px" alt="" />
       <a class="nav-item nav-link pointer" (click)="logout()">Logout</a>
     </div>
   </div>

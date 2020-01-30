@@ -13,21 +13,30 @@
               [formGroup]="patientEntryForm"
               (ngSubmit)="patientEntry(patientEntryForm)"
             >
-            <div class="form-label-group">
-              <div class="d-flex form-label-group">
-                <input
-                type="text"
-                id="patientID"
-                class="form-control m-1"
-                placeholder="Patient ID"
-                [ngClass]="{ 'is-invalid': invalid }"
-                formControlName="id"
-              />
-              <label for="patientID">Patient ID</label>
-              <button type="button" class="btn btn-lg btn-primary m-1" (click)="getPatient(patientEntryForm)">get</button>
+              <div class="form-label-group">
+                <div class="d-flex form-label-group">
+                  <input
+                    type="text"
+                    id="patientID"
+                    class="form-control m-1 is-valid"
+                    placeholder="Patient ID"
+                    [ngClass]="{ 'is-invalid': invalid, 'is-valid': valid }"
+                    formControlName="id"
+                  />
+                  <label for="patientID">Patient ID</label>
+                  <div *ngIf="invalid" class="invalid-feedback">
+                    Enter Valid User ID
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-primary m-1"
+                    (click)="getPatient(patientEntryForm)"
+                  >
+                    get
+                  </button>
+                </div>
               </div>
-            </div>
-            <hr class="my-4" />
+              <hr class="my-4" />
               <div class="form-label-group">
                 <input
                   type="text"
